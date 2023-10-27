@@ -7,6 +7,13 @@ function getMinMax(str) {
   ? arr.splice(arr.indexOf(item), 1) 
   : item = parseFloat(item)
   );
+  
+
+  //   if (str.split(' ').map(item => isNaN(parseFloat(item)))) {
+  //     arr.splice(arr.indexOf(item), 1);
+  //   } else {
+  //     item = parseFloat(item);
+  //   } 
 
   result.min = Math.min(...arr);
   result.max = Math.max(...arr);
@@ -21,9 +28,4 @@ function getMinMax(str) {
 ```js
 let arr = str.split(' ').map(...);
 ```
-
-2) Почему без проверки на isNan(),
-Math.min/max() исключительно возвращает Nan?
-
-3) Можно ли как-нибудь обойти второй пункт?
 */

@@ -1,7 +1,4 @@
 function filterRange(arr, a, b) {
-  let filtredArr = [];
-  for (let item of arr) {
-    if (item >= a && item <= b) filtredArr.push(item);
-  }
-  return filtredArr;
+  let result = arr.filter(item => item >= a && item <= b);
+  return result;
 }
