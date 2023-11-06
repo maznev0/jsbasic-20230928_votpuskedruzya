@@ -3,28 +3,28 @@ function initCarousel() {
   let arrowRight = document.querySelector('.carousel__arrow_right');
   let carousel = document.querySelector('.carousel__inner');
   let carouselLength = document.querySelectorAll('.carousel__slide').length;
-  let width = 0; 
+  let counter = 0; 
 
   arrowLeft.style.display = 'none';
 
   arrowLeft.addEventListener('click', () => {
     arrowRight.style.display = '';
-
-    width += carousel.offsetWidth;
-    carousel.style.transform = `translateX(${width}px)`;
     
-    if (width == 0) {
+    counter--;
+    carousel.style.transform = `translateX(${-carousel.offsetWidth * counter}px)`;
+    
+    if (counter == 0) {
       arrowLeft.style.display = 'none';
     }
   });
 
   arrowRight.addEventListener('click', () => {
     arrowLeft.style.display = '';
-
-    width -= carousel.offsetWidth;
-    carousel.style.transform = `translateX(${width}px)`;
     
-    if (width == (carouselLength - 1) * -carousel.offsetWidth) {
+    counter++;
+    carousel.style.transform = `translateX(${-carousel.offsetWidth * counter}px)`;
+    
+    if (counter == carouselLength - 1) {
     //or (carousel.children.length - 1) * -carousel.offsetWidth
       arrowRight.style.display = 'none';
     }
